@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
 import kuidd.tests.File;
@@ -18,6 +19,18 @@ public class Servlet extends AbstractHandler {
 
 	public Servlet(IBot bot) {
 		this.bot = bot;
+	}
+
+	public void init() {
+		Server server = new Server(7777); // TODO: set port from setting
+		server.setHandler(this);
+
+		try {
+			server.start();
+			server.join();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

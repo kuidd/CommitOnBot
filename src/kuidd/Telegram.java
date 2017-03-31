@@ -1,8 +1,11 @@
 package kuidd;
 
+import org.telegram.telegrambots.ApiContextInitializer;
+import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 public class Telegram extends TelegramLongPollingBot {
 
@@ -10,6 +13,15 @@ public class Telegram extends TelegramLongPollingBot {
 
 	public Telegram(IBot bot) {
 		this.bot = bot;
+	}
+
+	public void init() {
+		ApiContextInitializer.init();
+		try {
+			new TelegramBotsApi().registerBot(this);
+		} catch (TelegramApiException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
