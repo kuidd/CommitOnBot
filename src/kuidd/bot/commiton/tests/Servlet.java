@@ -26,7 +26,7 @@ public class Servlet extends AbstractHandler {
 		if (!target.equals("/test"))
 			return;
 
-		response.getWriter().println(new File("src/kuidd/tests/res/http_server_test.html").read());
+		response.getWriter().println(new File("src/kuidd/bot/commiton/tests/res/http_server_test.html").read());
 		response.setContentType("text/html; charset=utf-8");
 		response.setStatus(HttpServletResponse.SC_OK);
 		baseRequest.setHandled(true);

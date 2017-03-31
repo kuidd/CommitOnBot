@@ -13,7 +13,7 @@ public class CommitTest {
 
 	@Test
 	public void notifyTest() throws IOException {
-		String json = new File("src/kuidd/tests/res/github_push_example.json").read();
+		String json = new File("src/kuidd/bot/commiton/tests/res/github_push_example.json").read();
 
 		MockChat mock = new MockChat();
 
