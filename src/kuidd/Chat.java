@@ -28,8 +28,8 @@ public class Chat implements IChat {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		Chat equal = (Chat) o;
+	public boolean equalId(IChat chat) {
+		Chat equal = (Chat) chat;
 
 		if (equal == null)
 			return false;

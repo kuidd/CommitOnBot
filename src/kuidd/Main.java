@@ -17,7 +17,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		Server server = new Server(7777); // TODO: set port from setting
+		Server server = new Server(7777);
 		server.setHandler(new Servlet(bot));
 		try {
 			server.start();

@@ -24,7 +24,7 @@ public class Chats implements IChats {
 	@Override
 	public boolean exists(IChat chat) {
 		for (int i = 0; i < chats.size(); i++) {
-			if (chat.equals(chats.get(i))) {
+			if (chat.equalId(chats.get(i))) {
 				return true;
 			}
 		}

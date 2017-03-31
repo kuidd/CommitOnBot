@@ -10,4 +10,9 @@ public class MockChat implements IChat {
 	public void print(String message) {
 		this.message = message;
 	}
+
+	@Override
+	public boolean equalId(IChat chat) {
+		return this.equals(chat);
+	}
 }

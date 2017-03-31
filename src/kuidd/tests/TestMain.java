@@ -14,7 +14,7 @@ public class TestMain {
 	public static void main(String[] args) {
 		IBot bot = new Bot();
 
-		Server server = new Server(7777); // TODO: set port from setting
+		Server server = new Server(7777);
 		server.setHandler(new kuidd.tests.Servlet(new Servlet(bot)));
 
 		try {
