@@ -6,11 +6,11 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 public class Chat implements IChat {
 
-	private AbsSender bot;
+	private AbsSender sender;
 	private String chatId;
 
-	public Chat(AbsSender bot, String chatId) {
-		this.bot = bot;
+	public Chat(AbsSender sender, String chatId) {
+		this.sender = sender;
 		this.chatId = chatId;
 	}
 
@@ -21,7 +21,7 @@ public class Chat implements IChat {
 		sendMessage.setChatId(chatId);
 		sendMessage.setText(message);
 		try {
-			bot.sendMessage(sendMessage);
+			sender.sendMessage(sendMessage);
 		} catch (TelegramApiException e) {
 			e.printStackTrace();
 		}
