@@ -12,9 +12,9 @@ public class Bot implements IBot {
 	@Override
 	public void start(IChat chat) {
 		if (chats.exists(chat)) {
-			chat.print("Подписка уже активирована. Чтобы отписаться введите /unsubscribe.");
+			chat.print("Подписка уже активирована.\n/unsubscribe - отписаться");
 		} else {
-			chat.print("Подписка ещё не активирована. Чтобы подписаться введите /subscribe.");
+			chat.print("Подписка ещё не активирована.\n/subscribe - подписаться");
 		}
 	}
 

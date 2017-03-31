@@ -27,7 +27,7 @@ public class BotTest {
 		Bot bot = new Bot();
 		bot.start(mock);
 
-		assertEquals(mock.message, "Подписка ещё не активирована. Чтобы подписаться введите /subscribe.");
+		assertEquals(mock.message, "Подписка ещё не активирована.\n/subscribe - подписаться");
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class BotTest {
 		bot.subscribe(mock);
 		bot.start(mock);
 
-		assertEquals(mock.message, "Подписка уже активирована. Чтобы отписаться введите /unsubscribe.");
+		assertEquals(mock.message, "Подписка уже активирована.\n/unsubscribe - отписаться");
 	}
 
 	@Test
