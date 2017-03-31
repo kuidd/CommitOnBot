@@ -5,7 +5,7 @@ Telegram Bot для уведомления об изменениях в репо
 Инструкция по тестовому запуску:
 1. Запустить проект из Eclipse, как Java Application.
 1.1. Проект запустит и Telegram-бота и HTTP-сервер.
-2. В качестве main-метода указать kuidd.tests.TestMain.main.
+2. В качестве main-метода указать kuidd.bot.commiton.tests.TestMain.main.
 3. В приложении Telegram найти бота CommitOnBot.
 4. Подписаться на обновления командой /subscribe.
 5. В браузере открыть тестовую страницу http://localhost:7777/test.
