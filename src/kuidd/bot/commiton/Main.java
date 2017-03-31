@@ -5,6 +5,8 @@ import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
+import kuidd.bot.commiton.config.ConfigProperties;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		Server server = new Server(7777);
+		Server server = new Server(ConfigProperties.getInstance().getServerPort());
 		server.setHandler(new Servlet(bot));
 		try {
 			server.start();

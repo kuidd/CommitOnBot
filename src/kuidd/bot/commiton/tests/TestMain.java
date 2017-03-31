@@ -9,6 +9,7 @@ import kuidd.bot.commiton.Bot;
 import kuidd.bot.commiton.IBot;
 import kuidd.bot.commiton.Servlet;
 import kuidd.bot.commiton.Telegram;
+import kuidd.bot.commiton.config.ConfigProperties;
 
 public class TestMain {
 	public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class TestMain {
 			e.printStackTrace();
 		}
 
-		Server server = new Server(7777);
+		Server server = new Server(ConfigProperties.getInstance().getServerPort());
 		server.setHandler(new kuidd.bot.commiton.tests.Servlet(new Servlet(bot)));
 		try {
 			server.start();

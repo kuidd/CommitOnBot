@@ -4,6 +4,8 @@ import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
+import kuidd.bot.commiton.config.ConfigProperties;
+
 public class Telegram extends TelegramLongPollingBot {
 
 	private IBot bot;
@@ -14,12 +16,12 @@ public class Telegram extends TelegramLongPollingBot {
 
 	@Override
 	public String getBotUsername() {
-		return "CommitOnBot";
+		return ConfigProperties.getInstance().getBotUsername();
 	}
 
 	@Override
 	public String getBotToken() {
-		return "344689671:AAHOv6YKsFlxdhu3tYoDuaGSAoQHZiMegnk";
+		return ConfigProperties.getInstance().getBotToken();
 	}
 
 	@Override
