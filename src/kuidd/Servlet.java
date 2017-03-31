@@ -33,9 +33,7 @@ public class Servlet extends AbstractHandler {
 			sb.append(charBuffer, 0, bytesRead);
 		}
 
-		String test = sb.toString();
-
-		Commit commit = new Commit(test);
+		Commit commit = new Commit(sb.toString());
 		bot.broadcast(commit);
 	}
 
