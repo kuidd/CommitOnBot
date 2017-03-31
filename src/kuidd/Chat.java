@@ -34,7 +34,7 @@ public class Chat implements IChat {
 		if (equal == null)
 			return false;
 
-		if (chatId == equal.chatId)
+		if (chatId.equals(equal.chatId))
 			return true;
 
 		return false;

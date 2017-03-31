@@ -1,6 +1,5 @@
 package kuidd;
 
-import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
@@ -16,7 +15,6 @@ public class Telegram extends TelegramLongPollingBot {
 	}
 
 	public void init() {
-		ApiContextInitializer.init();
 		try {
 			new TelegramBotsApi().registerBot(this);
 		} catch (TelegramApiException e) {
