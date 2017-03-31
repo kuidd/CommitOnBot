@@ -14,20 +14,19 @@ public class TestMain {
 	public static void main(String[] args) {
 		IBot bot = new Bot();
 
-		Server server = new Server(7777);
-		server.setHandler(new kuidd.bot.commiton.tests.Servlet(new Servlet(bot)));
-
-		try {
-			server.start();
-			server.join();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 		ApiContextInitializer.init();
 		try {
 			new TelegramBotsApi().registerBot(new Telegram(bot));
 		} catch (TelegramApiException e) {
+			e.printStackTrace();
+		}
+
+		Server server = new Server(7777);
+		server.setHandler(new kuidd.bot.commiton.tests.Servlet(new Servlet(bot)));
+		try {
+			server.start();
+			server.join();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
