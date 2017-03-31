@@ -14,7 +14,7 @@ public class Chats implements IChats {
 	@Override
 	public void remove(IChat chat) {
 		for (int i = 0; i < chats.size(); i++) {
-			if (chat.equals(chats.get(i))) {
+			if (chat.equalId(chats.get(i))) {
 				chats.remove(i);
 				break;
 			}
