@@ -17,17 +17,28 @@ public class BotTest {
 		Bot bot = new Bot();
 		bot.help(mock);
 
-		assertEquals(mock.message, "TODO: help");
+		assertEquals(mock.message, "Доступные команды:\n/subscribe - подписаться\n/unsubscribe - отписаться");
 	}
 
 	@Test
-	public void startTest() {
+	public void startUnsubscribedTest() {
 		MockChat mock = new MockChat();
 
 		Bot bot = new Bot();
 		bot.start(mock);
 
-		assertEquals(mock.message, "TODO: start");
+		assertEquals(mock.message, "Подписка ещё не активирована. Чтобы подписаться введите /subscribe.");
+	}
+
+	@Test
+	public void startSubscribedTest() {
+		MockChat mock = new MockChat();
+
+		Bot bot = new Bot();
+		bot.subscribe(mock);
+		bot.start(mock);
+
+		assertEquals(mock.message, "Подписка уже активирована. Чтобы отписаться введите /unsubscribe.");
 	}
 
 	@Test
@@ -37,7 +48,7 @@ public class BotTest {
 		Bot bot = new Bot();
 		bot.subscribe(mock);
 
-		assertEquals(mock.message, "TODO: subscribe");
+		assertEquals(mock.message, "Подписка активирована.");
 	}
 
 	@Test
@@ -47,7 +58,7 @@ public class BotTest {
 		Bot bot = new Bot();
 		bot.unsubscribe(mock);
 
-		assertEquals(mock.message, "TODO: unsubscribe");
+		assertEquals(mock.message, "Подписка отменена.");
 	}
 
 	@Test
@@ -62,8 +73,11 @@ public class BotTest {
 		Bot bot = new Bot();
 
 		bot.subscribe(subscribed1);
-		bot.unsubscribe(unsubscribed1);
 		bot.subscribe(subscribed2);
+		bot.subscribe(unsubscribed1);
+		bot.subscribe(unsubscribed2);
+
+		bot.unsubscribe(unsubscribed1);
 		bot.unsubscribe(unsubscribed2);
 
 		bot.broadcast(mock);
