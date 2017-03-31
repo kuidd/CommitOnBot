@@ -1,4 +1,4 @@
-package kuidd;
+package kuidd.bot.commiton;
 
 import org.json.JSONException;
 import org.json.JSONObject;

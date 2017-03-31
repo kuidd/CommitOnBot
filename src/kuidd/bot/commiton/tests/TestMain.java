@@ -1,21 +1,21 @@
-package kuidd.tests;
+package kuidd.bot.commiton.tests;
 
 import org.eclipse.jetty.server.Server;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-import kuidd.Bot;
-import kuidd.IBot;
-import kuidd.Servlet;
-import kuidd.Telegram;
+import kuidd.bot.commiton.Bot;
+import kuidd.bot.commiton.IBot;
+import kuidd.bot.commiton.Servlet;
+import kuidd.bot.commiton.Telegram;
 
 public class TestMain {
 	public static void main(String[] args) {
 		IBot bot = new Bot();
 
 		Server server = new Server(7777);
-		server.setHandler(new kuidd.tests.Servlet(new Servlet(bot)));
+		server.setHandler(new kuidd.bot.commiton.tests.Servlet(new Servlet(bot)));
 
 		try {
 			server.start();

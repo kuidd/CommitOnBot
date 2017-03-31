@@ -1,4 +1,4 @@
-package kuidd;
+package kuidd.bot.commiton;
 
 import java.util.ArrayList;
 import java.util.List;

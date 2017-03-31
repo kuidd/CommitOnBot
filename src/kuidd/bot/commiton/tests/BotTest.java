@@ -1,12 +1,12 @@
-package kuidd.tests;
+package kuidd.bot.commiton.tests;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import kuidd.Bot;
-import kuidd.mocks.MockChat;
-import kuidd.mocks.MockCommit;
+import kuidd.bot.commiton.Bot;
+import kuidd.bot.commiton.mocks.MockChat;
+import kuidd.bot.commiton.mocks.MockCommit;
 
 public class BotTest {
 

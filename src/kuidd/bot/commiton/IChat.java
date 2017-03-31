@@ -1,4 +1,4 @@
-package kuidd;
+package kuidd.bot.commiton;
 
 public interface IChat {
 	public void print(String message);

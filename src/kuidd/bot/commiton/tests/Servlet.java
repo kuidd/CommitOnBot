@@ -1,6 +1,5 @@
-package kuidd;
+package kuidd.bot.commiton.tests;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -12,29 +11,25 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
 
 public class Servlet extends AbstractHandler {
 
-	private IBot bot;
+	kuidd.bot.commiton.Servlet servlet;
 
-	public Servlet(IBot bot) {
-		this.bot = bot;
+	public Servlet(kuidd.bot.commiton.Servlet servlet) {
+		this.servlet = servlet;
 	}
 
 	@Override
 	public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
-		if (!target.equals("/message"))
+		servlet.handle(target, baseRequest, request, response);
+
+		if (!target.equals("/test"))
 			return;
 
-		StringBuffer sb = new StringBuffer();
-		BufferedReader bufferedReader = request.getReader();
-		char[] charBuffer = new char[128];
-		int bytesRead;
-		while ((bytesRead = bufferedReader.read(charBuffer)) != -1) {
-			sb.append(charBuffer, 0, bytesRead);
-		}
-
-		Commit commit = new Commit(sb.toString());
-		bot.broadcast(commit);
+		response.getWriter().println(new File("src/kuidd/tests/res/http_server_test.html").read());
+		response.setContentType("text/html; charset=utf-8");
+		response.setStatus(HttpServletResponse.SC_OK);
+		baseRequest.setHandled(true);
 	}
 
 }

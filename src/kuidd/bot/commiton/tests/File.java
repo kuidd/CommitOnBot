@@ -1,4 +1,4 @@
-package kuidd.tests;
+package kuidd.bot.commiton.tests;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

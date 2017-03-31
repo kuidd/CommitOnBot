@@ -1,6 +1,6 @@
-package kuidd.mocks;
+package kuidd.bot.commiton.mocks;
 
-import kuidd.IChat;
+import kuidd.bot.commiton.IChat;
 
 public class MockChat implements IChat {
 

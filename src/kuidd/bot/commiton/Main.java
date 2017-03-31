@@ -1,4 +1,4 @@
-package kuidd;
+package kuidd.bot.commiton;
 
 import org.eclipse.jetty.server.Server;
 import org.telegram.telegrambots.ApiContextInitializer;

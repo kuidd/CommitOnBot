@@ -1,4 +1,4 @@
-package kuidd;
+package kuidd.bot.commiton;
 
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.bots.AbsSender;

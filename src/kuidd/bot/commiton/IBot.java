@@ -1,4 +1,4 @@
-package kuidd;
+package kuidd.bot.commiton;
 
 public interface IBot {
 	public void help(IChat chat);

@@ -1,10 +1,10 @@
-package kuidd.mocks;
+package kuidd.bot.commiton.mocks;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import kuidd.IChat;
-import kuidd.ICommit;
+import kuidd.bot.commiton.IChat;
+import kuidd.bot.commiton.ICommit;
 
 public class MockCommit implements ICommit {
 

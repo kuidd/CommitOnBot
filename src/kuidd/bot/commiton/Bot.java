@@ -1,4 +1,4 @@
-package kuidd;
+package kuidd.bot.commiton;
 
 public class Bot implements IBot {
 

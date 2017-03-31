@@ -1,4 +1,4 @@
-package kuidd.tests;
+package kuidd.bot.commiton.tests;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,8 +6,8 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import kuidd.Commit;
-import kuidd.mocks.MockChat;
+import kuidd.bot.commiton.Commit;
+import kuidd.bot.commiton.mocks.MockChat;
 
 public class CommitTest {
 
