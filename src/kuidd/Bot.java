@@ -2,7 +2,7 @@ package kuidd;
 
 public class Bot implements IBot {
 
-	private Chats chats = new Chats();
+	private IChats chats = new Chats();
 
 	@Override
 	public void help(IChat chat) {
