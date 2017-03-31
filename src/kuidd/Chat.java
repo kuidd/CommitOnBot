@@ -27,4 +27,16 @@ public class Chat implements IChat {
 		}
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		Chat equal = (Chat) o;
+
+		if (equal == null)
+			return false;
+
+		if (chatId == equal.chatId)
+			return true;
+
+		return false;
+	}
 }

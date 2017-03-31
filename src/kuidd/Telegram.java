@@ -4,7 +4,14 @@ import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
-public class CommitOnBot extends TelegramLongPollingBot {
+public class Telegram extends TelegramLongPollingBot {
+
+	private IBot bot;
+
+	public Telegram(IBot bot) {
+		this.bot = bot;
+	}
+
 	@Override
 	public String getBotUsername() {
 		return "CommitOnBot";
@@ -23,7 +30,13 @@ public class CommitOnBot extends TelegramLongPollingBot {
 			Chat chat = new Chat(this, message.getChatId().toString());
 
 			if (message.getText().equals("/help")) {
-				chat.print("Привет, я CommitOnBot и пока ничего не понимаю");
+				bot.help(chat);
+			} else if (message.getText().equals("/start")) {
+				bot.start(chat);
+			} else if (message.getText().equals("/subscribe")) {
+				bot.subscribe(chat);
+			} else if (message.getText().equals("/unsubscribe")) {
+				bot.unsubscribe(chat);
 			} else {
 				chat.print("Не понимаю");
 			}
