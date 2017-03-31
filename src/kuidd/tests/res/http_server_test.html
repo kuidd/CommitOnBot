@@ -10,19 +10,11 @@
 				
 		http.setRequestHeader("Content-type", "application/json");
 		
-		http.onreadystatechange = function() {
-			if (http.readyState == 4) {
-				alert( 'status=' + http.status + ', statusText=' + http.statusText + ', responseText=' + http.responseText);
-			}
-		};
-		
 		http.send(document.getElementById("inputJSON").value);
     }
 
 	function init() {
-		var inputJSON = document.getElementById("inputJSON");
-		
-		inputJSON.value = '{"head_commit": {"author": {"name": "Dmitry Usynin"    }},"repository": {"name": "CommitOnBot"}}';
+		document.getElementById("inputJSON").value = '{"head_commit": {"author": {"name": "Dmitry Usynin"    }},"repository": {"name": "CommitOnBot"}}';
 	}
 
 	window.onload = init;
