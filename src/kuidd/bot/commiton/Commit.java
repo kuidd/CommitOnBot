@@ -1,24 +1,27 @@
 package kuidd.bot.commiton;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import kuidd.bot.commiton.json.github.GitHubResponse;
 
 public class Commit implements ICommit {
-	private JSONObject json;
+	private GitHubResponse response;
 
 	public Commit(String json) {
 		try {
-			this.json = new JSONObject(json);
-		} catch (JSONException e) {
+			GsonBuilder builder = new GsonBuilder();
+			Gson gson = builder.create();
+			response = gson.fromJson(json, GitHubResponse.class);
+		} catch (Exception e) {
 		}
 	}
 
 	@Override
 	public void notify(IChat chat) {
-		try {
-			chat.print(json.getJSONObject("head_commit").getJSONObject("author").get("name") + " committed on "
-					+ json.getJSONObject("repository").get("name"));
-		} catch (JSONException e) {
+		try { chat.print(response.getHeadCommit().getAuthor().getName() + " committed on "
+					+ response.getRepository().getName());
+		} catch (Exception e) {
 		}
 	}
 }

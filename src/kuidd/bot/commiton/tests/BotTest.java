@@ -2,6 +2,8 @@ package kuidd.bot.commiton.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import kuidd.bot.commiton.Bot;
@@ -9,22 +11,30 @@ import kuidd.bot.commiton.mocks.MockChat;
 import kuidd.bot.commiton.mocks.MockCommit;
 
 public class BotTest {
+	private MockChat mock;
+	private Bot bot;
 
+	@Before
+	public void prepare() {
+		mock = new MockChat();
+		bot = new Bot();
+	}
+	
+	@After
+	public void close() {
+		mock = null;
+		bot = null;
+	}
+	
 	@Test
 	public void helpTest() {
-		MockChat mock = new MockChat();
-
-		Bot bot = new Bot();
 		bot.help(mock);
-
+		
 		assertEquals(mock.message, "Доступные команды:\n/subscribe - подписаться\n/unsubscribe - отписаться");
 	}
 
 	@Test
 	public void startUnsubscribedTest() {
-		MockChat mock = new MockChat();
-
-		Bot bot = new Bot();
 		bot.start(mock);
 
 		assertEquals(mock.message, "Подписка ещё не активирована.\n/subscribe - подписаться");
@@ -32,9 +42,6 @@ public class BotTest {
 
 	@Test
 	public void startSubscribedTest() {
-		MockChat mock = new MockChat();
-
-		Bot bot = new Bot();
 		bot.subscribe(mock);
 		bot.start(mock);
 
@@ -43,9 +50,6 @@ public class BotTest {
 
 	@Test
 	public void subscribeTest() {
-		MockChat mock = new MockChat();
-
-		Bot bot = new Bot();
 		bot.subscribe(mock);
 
 		assertEquals(mock.message, "Подписка активирована.");
@@ -53,9 +57,6 @@ public class BotTest {
 
 	@Test
 	public void unsubscribeTest() {
-		MockChat mock = new MockChat();
-
-		Bot bot = new Bot();
 		bot.unsubscribe(mock);
 
 		assertEquals(mock.message, "Подписка отменена.");
@@ -69,8 +70,6 @@ public class BotTest {
 		MockChat unsubscribed2 = new MockChat();
 
 		MockCommit mock = new MockCommit();
-
-		Bot bot = new Bot();
 
 		bot.subscribe(subscribed1);
 		bot.subscribe(subscribed2);
