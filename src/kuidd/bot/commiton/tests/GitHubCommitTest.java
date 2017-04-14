@@ -6,10 +6,10 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import kuidd.bot.commiton.Commit;
+import kuidd.bot.commiton.GitHubCommit;
 import kuidd.bot.commiton.mocks.MockChat;
 
-public class CommitTest {
+public class GitHubCommitTest {
 
 	@Test
 	public void notifyTest() throws IOException {
@@ -17,7 +17,7 @@ public class CommitTest {
 
 		MockChat mock = new MockChat();
 
-		Commit commit = new Commit(json);
+		GitHubCommit commit = new GitHubCommit(json);
 		commit.notify(mock);
 
 		assertEquals(mock.message, "Dmitry Usynin committed on CommitOnBot");

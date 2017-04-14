@@ -33,7 +33,7 @@ public class Servlet extends AbstractHandler {
 			sb.append(charBuffer, 0, bytesRead);
 		}
 
-		Commit commit = new Commit(sb.toString());
+		GitHubCommit commit = new GitHubCommit(sb.toString());
 		bot.broadcast(commit);
 	}
 
