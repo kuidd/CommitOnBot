@@ -30,14 +30,14 @@ public class BotTest {
 	public void helpTest() {
 		bot.help(mock);
 
-		assertEquals(mock.message, "Доступные команды:\n/subscribe - подписаться\n/unsubscribe - отписаться");
+		assertEquals("Доступные команды:\n/subscribe - подписаться\n/unsubscribe - отписаться", mock.message);
 	}
 
 	@Test
 	public void startUnsubscribedTest() {
 		bot.start(mock);
 
-		assertEquals(mock.message, "Подписка ещё не активирована.\n/subscribe - подписаться");
+		assertEquals("Подписка ещё не активирована.\n/subscribe - подписаться", mock.message);
 	}
 
 	@Test
@@ -45,21 +45,21 @@ public class BotTest {
 		bot.subscribe(mock);
 		bot.start(mock);
 
-		assertEquals(mock.message, "Подписка уже активирована.\n/unsubscribe - отписаться");
+		assertEquals("Подписка уже активирована.\n/unsubscribe - отписаться", mock.message);
 	}
 
 	@Test
 	public void subscribeTest() {
 		bot.subscribe(mock);
 
-		assertEquals(mock.message, "Подписка активирована.");
+		assertEquals("Подписка активирована.", mock.message);
 	}
 
 	@Test
 	public void unsubscribeTest() {
 		bot.unsubscribe(mock);
 
-		assertEquals(mock.message, "Подписка отменена.");
+		assertEquals("Подписка отменена.", mock.message);
 	}
 
 	@Test
@@ -81,8 +81,23 @@ public class BotTest {
 
 		bot.broadcast(mock);
 
-		assertEquals(mock.chats.size(), 2);
-		assertEquals(mock.chats.get(0), subscribed1);
-		assertEquals(mock.chats.get(1), subscribed2);
+		assertEquals(2, mock.chats.size());
+		assertEquals(subscribed1, mock.chats.get(0));
+		assertEquals(subscribed2, mock.chats.get(1));
+	}
+
+	@Test
+	public void broadcastTest_double() {
+		MockChat chat = new MockChat();
+
+		MockCommit mock = new MockCommit();
+
+		bot.subscribe(chat);
+		bot.subscribe(chat);
+
+		bot.broadcast(mock);
+
+		assertEquals(1, mock.chats.size());
+		assertEquals(chat, mock.chats.get(0));
 	}
 }

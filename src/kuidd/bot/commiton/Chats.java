@@ -8,6 +8,10 @@ public class Chats implements IChats {
 
 	@Override
 	public void add(IChat chat) {
+		if (exists(chat)) {
+			return;
+		}
+
 		chats.add(chat);
 	}
 
