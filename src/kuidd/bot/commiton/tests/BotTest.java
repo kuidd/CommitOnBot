@@ -19,25 +19,25 @@ public class BotTest {
 		mock = new MockChat();
 		bot = new Bot();
 	}
-	
+
 	@After
 	public void close() {
 		mock = null;
 		bot = null;
 	}
-	
+
 	@Test
 	public void helpTest() {
 		bot.help(mock);
-		
-		assertEquals(mock.message, "Доступные команды:\n/subscribe - подписаться\n/unsubscribe - отписаться");
+
+		assertEquals(mock.message, "Р”РѕСЃС‚СѓРїРЅС‹Рµ РєРѕРјР°РЅРґС‹:\n/subscribe - РїРѕРґРїРёСЃР°С‚СЊСЃСЏ\n/unsubscribe - РѕС‚РїРёСЃР°С‚СЊСЃСЏ");
 	}
 
 	@Test
 	public void startUnsubscribedTest() {
 		bot.start(mock);
 
-		assertEquals(mock.message, "Подписка ещё не активирована.\n/subscribe - подписаться");
+		assertEquals(mock.message, "РџРѕРґРїРёСЃРєР° РµС‰С‘ РЅРµ Р°РєС‚РёРІРёСЂРѕРІР°РЅР°.\n/subscribe - РїРѕРґРїРёСЃР°С‚СЊСЃСЏ");
 	}
 
 	@Test
@@ -45,21 +45,21 @@ public class BotTest {
 		bot.subscribe(mock);
 		bot.start(mock);
 
-		assertEquals(mock.message, "Подписка уже активирована.\n/unsubscribe - отписаться");
+		assertEquals(mock.message, "РџРѕРґРїРёСЃРєР° СѓР¶Рµ Р°РєС‚РёРІРёСЂРѕРІР°РЅР°.\n/unsubscribe - РѕС‚РїРёСЃР°С‚СЊСЃСЏ");
 	}
 
 	@Test
 	public void subscribeTest() {
 		bot.subscribe(mock);
 
-		assertEquals(mock.message, "Подписка активирована.");
+		assertEquals(mock.message, "РџРѕРґРїРёСЃРєР° Р°РєС‚РёРІРёСЂРѕРІР°РЅР°.");
 	}
 
 	@Test
 	public void unsubscribeTest() {
 		bot.unsubscribe(mock);
 
-		assertEquals(mock.message, "Подписка отменена.");
+		assertEquals(mock.message, "РџРѕРґРїРёСЃРєР° РѕС‚РјРµРЅРµРЅР°.");
 	}
 
 	@Test

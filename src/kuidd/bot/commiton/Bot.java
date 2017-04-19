@@ -6,28 +6,28 @@ public class Bot implements IBot {
 
 	@Override
 	public void help(IChat chat) {
-		chat.print("Доступные команды:\n/subscribe - подписаться\n/unsubscribe - отписаться");
+		chat.print("Р”РѕСЃС‚СѓРїРЅС‹Рµ РєРѕРјР°РЅРґС‹:\n/subscribe - РїРѕРґРїРёСЃР°С‚СЊСЃСЏ\n/unsubscribe - РѕС‚РїРёСЃР°С‚СЊСЃСЏ");
 	}
 
 	@Override
 	public void start(IChat chat) {
 		if (chats.exists(chat)) {
-			chat.print("Подписка уже активирована.\n/unsubscribe - отписаться");
+			chat.print("РџРѕРґРїРёСЃРєР° СѓР¶Рµ Р°РєС‚РёРІРёСЂРѕРІР°РЅР°.\n/unsubscribe - РѕС‚РїРёСЃР°С‚СЊСЃСЏ");
 		} else {
-			chat.print("Подписка ещё не активирована.\n/subscribe - подписаться");
+			chat.print("РџРѕРґРїРёСЃРєР° РµС‰С‘ РЅРµ Р°РєС‚РёРІРёСЂРѕРІР°РЅР°.\n/subscribe - РїРѕРґРїРёСЃР°С‚СЊСЃСЏ");
 		}
 	}
 
 	@Override
 	public void subscribe(IChat chat) {
 		chats.add(chat);
-		chat.print("Подписка активирована.");
+		chat.print("РџРѕРґРїРёСЃРєР° Р°РєС‚РёРІРёСЂРѕРІР°РЅР°.");
 	}
 
 	@Override
 	public void unsubscribe(IChat chat) {
 		chats.remove(chat);
-		chat.print("Подписка отменена.");
+		chat.print("РџРѕРґРїРёСЃРєР° РѕС‚РјРµРЅРµРЅР°.");
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class Telegram extends TelegramLongPollingBot {
 			} else if (message.getText().equals("/unsubscribe")) {
 				bot.unsubscribe(chat);
 			} else {
-				chat.print("Не понимаю");
+				chat.print("РќРµ РїРѕРЅРёРјР°СЋ");
 			}
 		}
 	}
