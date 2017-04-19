@@ -17,13 +17,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		int iport = 7777;
-		String sport = System.getenv("PORT");
-		if (sport != null && !sport.isEmpty()) {
-			iport = Integer.parseInt(sport);
-		}
-
-		Server server = new Server(iport);
+		Server server = new Server(Integer.parseInt(System.getenv("PORT")));
 		server.setHandler(new Servlet(bot));
 		try {
 			server.start();

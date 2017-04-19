@@ -21,8 +21,7 @@ public class TestMain {
 			e.printStackTrace();
 		}
 
-//TODO: вспомнить, зачем этот тест?
-		Server server = new Server(Integer.parseInt(System.getenv("PORT")));
+		Server server = new Server(7777);
 		server.setHandler(new kuidd.bot.commiton.tests.Servlet(new Servlet(bot)));
 		try {
 			server.start();
