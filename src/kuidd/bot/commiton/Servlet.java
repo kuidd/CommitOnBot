@@ -37,7 +37,17 @@ public class Servlet extends AbstractHandler {
 			sb.append(charBuffer, 0, bytesRead);
 		}
 
-		GitHubCommit commit = new GitHubCommit(sb.toString());
+		String json = sb.toString();
+		String headerUserAgent = request.getHeader("User-Agent");
+
+		ICommit commit = null;
+
+		if (headerUserAgent.contains("GitHub")) {
+			commit = new GitHubCommit(json);
+		} else {
+			commit = new BambooCommit(json);
+		}
+
 		bot.broadcast(commit);
 	}
 
