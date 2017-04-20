@@ -11,6 +11,9 @@ public class BambooResponse {
 	@SerializedName("repository")
 	@Expose
 	private String repository;
+	@SerializedName("comment")
+	@Expose
+	private String comment;
 
 	public String getAuthor() {
 		return author;
@@ -28,4 +31,11 @@ public class BambooResponse {
 		this.repository = repository;
 	}
 
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 }

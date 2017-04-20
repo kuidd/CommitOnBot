@@ -12,7 +12,8 @@ public class GitHubCommit implements ICommit {
 		try {
 			Gson gson = new GsonBuilder().create();
 			GitHubResponse response = gson.fromJson(json, GitHubResponse.class);
-			commit = new Commit(response.getHeadCommit().getAuthor().getName(), response.getRepository().getName());
+			commit = new Commit(response.getHeadCommit().getAuthor().getName(), response.getRepository().getName(),
+					response.getHeadCommit().getMessage());
 		} catch (Exception e) {
 		}
 	}

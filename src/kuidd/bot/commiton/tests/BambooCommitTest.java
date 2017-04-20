@@ -20,6 +20,6 @@ public class BambooCommitTest {
 		BambooCommit commit = new BambooCommit(json);
 		commit.notify(mock);
 
-		assertEquals(mock.message, "Dmitry Usynin committed on Repository");
+		assertEquals(mock.message, "Dmitry Usynin committed on Repository: Comment");
 	}
 }

@@ -20,6 +20,6 @@ public class GitHubCommitTest {
 		GitHubCommit commit = new GitHubCommit(json);
 		commit.notify(mock);
 
-		assertEquals(mock.message, "Dmitry Usynin committed on CommitOnBot");
+		assertEquals(mock.message, "Dmitry Usynin committed on CommitOnBot: Create test");
 	}
 }

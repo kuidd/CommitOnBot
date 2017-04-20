@@ -12,7 +12,7 @@ public class BambooCommit implements ICommit {
 		try {
 			Gson gson = new GsonBuilder().create();
 			BambooResponse response = gson.fromJson(json, BambooResponse.class);
-			commit = new Commit(response.getAuthor(), response.getRepository());
+			commit = new Commit(response.getAuthor(), response.getRepository(), response.getComment());
 		} catch (Exception e) {
 		}
 	}
