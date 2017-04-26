@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class GitHubResponse {
+public class Request {
 
     @SerializedName("ref")
     @Expose
@@ -58,7 +58,7 @@ public class GitHubResponse {
         this.ref = ref;
     }
 
-    public GitHubResponse withRef(String ref) {
+    public Request withRef(String ref) {
         this.ref = ref;
         return this;
     }
@@ -71,7 +71,7 @@ public class GitHubResponse {
         this.before = before;
     }
 
-    public GitHubResponse withBefore(String before) {
+    public Request withBefore(String before) {
         this.before = before;
         return this;
     }
@@ -84,7 +84,7 @@ public class GitHubResponse {
         this.after = after;
     }
 
-    public GitHubResponse withAfter(String after) {
+    public Request withAfter(String after) {
         this.after = after;
         return this;
     }
@@ -97,7 +97,7 @@ public class GitHubResponse {
         this.created = created;
     }
 
-    public GitHubResponse withCreated(boolean created) {
+    public Request withCreated(boolean created) {
         this.created = created;
         return this;
     }
@@ -110,7 +110,7 @@ public class GitHubResponse {
         this.deleted = deleted;
     }
 
-    public GitHubResponse withDeleted(boolean deleted) {
+    public Request withDeleted(boolean deleted) {
         this.deleted = deleted;
         return this;
     }
@@ -123,7 +123,7 @@ public class GitHubResponse {
         this.forced = forced;
     }
 
-    public GitHubResponse withForced(boolean forced) {
+    public Request withForced(boolean forced) {
         this.forced = forced;
         return this;
     }
@@ -136,7 +136,7 @@ public class GitHubResponse {
         this.baseRef = baseRef;
     }
 
-    public GitHubResponse withBaseRef(Object baseRef) {
+    public Request withBaseRef(Object baseRef) {
         this.baseRef = baseRef;
         return this;
     }
@@ -149,7 +149,7 @@ public class GitHubResponse {
         this.compare = compare;
     }
 
-    public GitHubResponse withCompare(String compare) {
+    public Request withCompare(String compare) {
         this.compare = compare;
         return this;
     }
@@ -162,7 +162,7 @@ public class GitHubResponse {
         this.commits = commits;
     }
 
-    public GitHubResponse withCommits(List<Commit> commits) {
+    public Request withCommits(List<Commit> commits) {
         this.commits = commits;
         return this;
     }
@@ -175,7 +175,7 @@ public class GitHubResponse {
         this.headCommit = headCommit;
     }
 
-    public GitHubResponse withHeadCommit(HeadCommit headCommit) {
+    public Request withHeadCommit(HeadCommit headCommit) {
         this.headCommit = headCommit;
         return this;
     }
@@ -188,7 +188,7 @@ public class GitHubResponse {
         this.repository = repository;
     }
 
-    public GitHubResponse withRepository(Repository repository) {
+    public Request withRepository(Repository repository) {
         this.repository = repository;
         return this;
     }
@@ -201,7 +201,7 @@ public class GitHubResponse {
         this.pusher = pusher;
     }
 
-    public GitHubResponse withPusher(Pusher pusher) {
+    public Request withPusher(Pusher pusher) {
         this.pusher = pusher;
         return this;
     }
@@ -214,7 +214,7 @@ public class GitHubResponse {
         this.organization = organization;
     }
 
-    public GitHubResponse withOrganization(Organization organization) {
+    public Request withOrganization(Organization organization) {
         this.organization = organization;
         return this;
     }
@@ -227,7 +227,7 @@ public class GitHubResponse {
         this.sender = sender;
     }
 
-    public GitHubResponse withSender(Sender sender) {
+    public Request withSender(Sender sender) {
         this.sender = sender;
         return this;
     }

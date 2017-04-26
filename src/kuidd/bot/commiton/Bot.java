@@ -1,5 +1,7 @@
 package kuidd.bot.commiton;
 
+import kuidd.bot.commiton.commit.ICommit;
+
 public class Bot implements IBot {
 
 	private IChats chats = new Chats();

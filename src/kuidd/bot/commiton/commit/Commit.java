@@ -1,4 +1,6 @@
-package kuidd.bot.commiton;
+package kuidd.bot.commiton.commit;
+
+import kuidd.bot.commiton.IChat;
 
 public class Commit implements ICommit {
 	private String author;

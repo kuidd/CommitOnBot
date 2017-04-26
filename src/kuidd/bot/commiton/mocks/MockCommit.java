@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kuidd.bot.commiton.IChat;
-import kuidd.bot.commiton.ICommit;
+import kuidd.bot.commiton.commit.ICommit;
 
 public class MockCommit implements ICommit {
 

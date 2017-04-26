@@ -3,6 +3,8 @@ package kuidd.bot.commiton;
 import java.util.ArrayList;
 import java.util.List;
 
+import kuidd.bot.commiton.commit.ICommit;
+
 public class Chats implements IChats {
 	private List<IChat> chats = new ArrayList<IChat>();
 

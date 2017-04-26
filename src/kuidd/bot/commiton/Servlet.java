@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
+import kuidd.bot.commiton.commit.BitBucket;
+import kuidd.bot.commiton.commit.Custom;
+import kuidd.bot.commiton.commit.GitHub;
+import kuidd.bot.commiton.commit.ICommit;
+
 public class Servlet extends AbstractHandler {
 
 	private IBot bot;
@@ -43,11 +48,11 @@ public class Servlet extends AbstractHandler {
 		ICommit commit = null;
 
 		if (headerUserAgent.contains("GitHub")) {
-			commit = new GitHubCommit(json);
+			commit = new GitHub(json);
 		} else if (headerUserAgent.contains("Bitbucket")) {
-			commit = new BitBucketCommit(json);
+			commit = new BitBucket(json);
 		} else {
-			commit = new BambooCommit(json);
+			commit = new Custom(json);
 		}
 
 		bot.broadcast(commit);

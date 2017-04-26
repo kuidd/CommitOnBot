@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
+import kuidd.bot.commiton.commit.tests.File;
+
 public class Servlet extends AbstractHandler {
 
 	kuidd.bot.commiton.Servlet servlet;

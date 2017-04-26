@@ -1,4 +1,4 @@
-package kuidd.bot.commiton.tests;
+package kuidd.bot.commiton.commit.tests;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,10 +6,10 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import kuidd.bot.commiton.BitBucketCommit;
+import kuidd.bot.commiton.commit.BitBucket;
 import kuidd.bot.commiton.mocks.MockChat;
 
-public class BitBucketCommitTest {
+public class BitBucketTest {
 
 	@Test
 	public void notifyTest() throws IOException {
@@ -17,7 +17,7 @@ public class BitBucketCommitTest {
 
 		MockChat mock = new MockChat();
 
-		BitBucketCommit commit = new BitBucketCommit(json);
+		BitBucket commit = new BitBucket(json);
 		commit.notify(mock);
 
 		assertEquals(mock.message, "Dmitry Usynin committed on Predictor: test created online with Bitbucket");

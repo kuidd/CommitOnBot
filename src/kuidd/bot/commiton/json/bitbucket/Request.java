@@ -3,7 +3,7 @@ package kuidd.bot.commiton.json.bitbucket;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BitBucket {
+public class Request {
 
 @SerializedName("push")
 @Expose

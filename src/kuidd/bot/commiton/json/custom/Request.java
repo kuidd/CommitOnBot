@@ -1,9 +1,9 @@
-package kuidd.bot.commiton.json.bamboo;
+package kuidd.bot.commiton.json.custom;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BambooResponse {
+public class Request {
 
 	@SerializedName("author")
 	@Expose
