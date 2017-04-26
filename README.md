@@ -1,18 +1,12 @@
 # CommitOnBot
 
-Telegram Bot для уведомления об изменениях в репозиториях.
+Telegram Bot for commits notification!
 
-Инструкция по тестовому запуску:
-1. Запустить проект из Eclipse, как Java Application. Проект запустит и Telegram-бота и HTTP-сервер.
-2. В качестве main-метода указать kuidd.bot.commiton.tests.TestMain.main.
-3. В приложении Telegram найти бота CommitOnBot.
-4. Подписаться на обновления командой /subscribe.
-5. В браузере открыть тестовую страницу http://localhost:7777/test.
-6. В открывшейся странице нажать кнопку "send".
-7. В Telegram от бота придёт сообщение "Dmitry Usynin commited on CommitOnBot".
+Two steps to connect:
+1. Set up your repo (few clicks for [GitHub](https://github.com/kuidd/CommitOnBot/wiki/How-to-connect-GitHub-repository%3F) or
+[BitBucket](https://github.com/kuidd/CommitOnBot/wiki/How-to-connect-BitBucket-repository%3F))
+2. Communicate with @CommitOnBot in Telegram (simple [user API](https://github.com/kuidd/CommitOnBot/wiki/CommitOnBot-user-API))
 
-API бота:
-* /start - бот сообщит статус подписки и предложит изменить его
-* /help - бот сообщит команды для активации и отмены подписки
-* /subscribe - активировать подписку
-* /unsubscribe - отменить подписку
+Enjoy:
+1. Commit to repo.
+2. Message in telegram.
