@@ -1,0 +1,258 @@
+{
+  "push": {
+    "changes": [
+      {
+        "forced": false,
+        "old": {
+          "type": "branch",
+          "name": "master",
+          "links": {
+            "commits": {
+              "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commits/master"
+            },
+            "self": {
+              "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/refs/branches/master"
+            },
+            "html": {
+              "href": "https://bitbucket.org/kuimma/predictor/branch/master"
+            }
+          },
+          "target": {
+            "hash": "e6093e62ef9f55a79884934792c66985c58155d9",
+            "links": {
+              "self": {
+                "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commit/e6093e62ef9f55a79884934792c66985c58155d9"
+              },
+              "html": {
+                "href": "https://bitbucket.org/kuimma/predictor/commits/e6093e62ef9f55a79884934792c66985c58155d9"
+              }
+            },
+            "author": {
+              "raw": "Dmitry Usynin <d.usynin@ftc.ru>",
+              "type": "author"
+            },
+            "parents": [],
+            "date": "2017-04-21T08:14:09+00:00",
+            "message": "Init commit #1\n",
+            "type": "commit"
+          }
+        },
+        "links": {
+          "diff": {
+            "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/diff/314bdb81b982bb6e25ef838957efda91fb3b2456..e6093e62ef9f55a79884934792c66985c58155d9"
+          },
+          "html": {
+            "href": "https://bitbucket.org/kuimma/predictor/branches/compare/314bdb81b982bb6e25ef838957efda91fb3b2456..e6093e62ef9f55a79884934792c66985c58155d9"
+          },
+          "commits": {
+            "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commits?include=314bdb81b982bb6e25ef838957efda91fb3b2456&exclude=e6093e62ef9f55a79884934792c66985c58155d9"
+          }
+        },
+        "truncated": false,
+        "commits": [
+          {
+            "hash": "314bdb81b982bb6e25ef838957efda91fb3b2456",
+            "links": {
+              "self": {
+                "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commit/314bdb81b982bb6e25ef838957efda91fb3b2456"
+              },
+              "comments": {
+                "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commit/314bdb81b982bb6e25ef838957efda91fb3b2456/comments"
+              },
+              "patch": {
+                "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/patch/314bdb81b982bb6e25ef838957efda91fb3b2456"
+              },
+              "html": {
+                "href": "https://bitbucket.org/kuimma/predictor/commits/314bdb81b982bb6e25ef838957efda91fb3b2456"
+              },
+              "diff": {
+                "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/diff/314bdb81b982bb6e25ef838957efda91fb3b2456"
+              },
+              "approve": {
+                "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commit/314bdb81b982bb6e25ef838957efda91fb3b2456/approve"
+              },
+              "statuses": {
+                "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commit/314bdb81b982bb6e25ef838957efda91fb3b2456/statuses"
+              }
+            },
+            "author": {
+              "raw": "Dmitry Usynin <dmitry.i.usynin@gmail.com>",
+              "type": "author",
+              "user": {
+                "username": "usynind",
+                "type": "user",
+                "display_name": "Dmitry Usynin",
+                "uuid": "{1f281bb6-55d5-4e53-8459-f7af34854a1a}",
+                "links": {
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/users/usynind"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/usynind/"
+                  },
+                  "avatar": {
+                    "href": "https://bitbucket.org/account/usynind/avatar/32/"
+                  }
+                }
+              }
+            },
+            "parents": [
+              {
+                "type": "commit",
+                "hash": "e6093e62ef9f55a79884934792c66985c58155d9",
+                "links": {
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commit/e6093e62ef9f55a79884934792c66985c58155d9"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/kuimma/predictor/commits/e6093e62ef9f55a79884934792c66985c58155d9"
+                  }
+                }
+              }
+            ],
+            "date": "2017-04-25T17:07:15+00:00",
+            "message": "test created online with Bitbucket",
+            "type": "commit"
+          }
+        ],
+        "created": false,
+        "closed": false,
+        "new": {
+          "type": "branch",
+          "name": "master",
+          "links": {
+            "commits": {
+              "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commits/master"
+            },
+            "self": {
+              "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/refs/branches/master"
+            },
+            "html": {
+              "href": "https://bitbucket.org/kuimma/predictor/branch/master"
+            }
+          },
+          "target": {
+            "hash": "314bdb81b982bb6e25ef838957efda91fb3b2456",
+            "links": {
+              "self": {
+                "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commit/314bdb81b982bb6e25ef838957efda91fb3b2456"
+              },
+              "html": {
+                "href": "https://bitbucket.org/kuimma/predictor/commits/314bdb81b982bb6e25ef838957efda91fb3b2456"
+              }
+            },
+            "author": {
+              "raw": "Dmitry Usynin <dmitry.i.usynin@gmail.com>",
+              "type": "author",
+              "user": {
+                "username": "usynind",
+                "type": "user",
+                "display_name": "Dmitry Usynin",
+                "uuid": "{1f281bb6-55d5-4e53-8459-f7af34854a1a}",
+                "links": {
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/users/usynind"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/usynind/"
+                  },
+                  "avatar": {
+                    "href": "https://bitbucket.org/account/usynind/avatar/32/"
+                  }
+                }
+              }
+            },
+            "parents": [
+              {
+                "type": "commit",
+                "hash": "e6093e62ef9f55a79884934792c66985c58155d9",
+                "links": {
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor/commit/e6093e62ef9f55a79884934792c66985c58155d9"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/kuimma/predictor/commits/e6093e62ef9f55a79884934792c66985c58155d9"
+                  }
+                }
+              }
+            ],
+            "date": "2017-04-25T17:07:15+00:00",
+            "message": "test created online with Bitbucket",
+            "type": "commit"
+          }
+        }
+      }
+    ]
+  },
+  "actor": {
+    "username": "usynind",
+    "type": "user",
+    "display_name": "Dmitry Usynin",
+    "uuid": "{1f281bb6-55d5-4e53-8459-f7af34854a1a}",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/users/usynind"
+      },
+      "html": {
+        "href": "https://bitbucket.org/usynind/"
+      },
+      "avatar": {
+        "href": "https://bitbucket.org/account/usynind/avatar/32/"
+      }
+    }
+  },
+  "repository": {
+    "website": "",
+    "scm": "git",
+    "name": "Predictor",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/kuimma/predictor"
+      },
+      "html": {
+        "href": "https://bitbucket.org/kuimma/predictor"
+      },
+      "avatar": {
+        "href": "https://bitbucket.org/kuimma/predictor/avatar/32/"
+      }
+    },
+    "project": {
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/kuimma/projects/PREDICTOR"
+        },
+        "html": {
+          "href": "https://bitbucket.org/account/user/kuimma/projects/PREDICTOR"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/kuimma/projects/PREDICTOR/avatar/32"
+        }
+      },
+      "type": "project",
+      "uuid": "{d835d08a-39a2-41a3-90c2-2ee0157b297f}",
+      "key": "PREDICTOR",
+      "name": "Predictor"
+    },
+    "full_name": "kuimma/predictor",
+    "owner": {
+      "username": "kuimma",
+      "type": "team",
+      "display_name": "kuimma",
+      "uuid": "{5c7a3390-9967-4a8b-a3d4-ce82c8b2bf05}",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/teams/kuimma"
+        },
+        "html": {
+          "href": "https://bitbucket.org/kuimma/"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/kuimma/avatar/32/"
+        }
+      }
+    },
+    "type": "repository",
+    "is_private": true,
+    "uuid": "{5399f1e6-cf45-42e2-b623-2401a8861253}"
+  }
+}

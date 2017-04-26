@@ -44,6 +44,8 @@ public class Servlet extends AbstractHandler {
 
 		if (headerUserAgent.contains("GitHub")) {
 			commit = new GitHubCommit(json);
+		} else if (headerUserAgent.contains("Bitbucket")) {
+			commit = new BitBucketCommit(json);
 		} else {
 			commit = new BambooCommit(json);
 		}
