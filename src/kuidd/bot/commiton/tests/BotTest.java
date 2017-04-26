@@ -7,8 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kuidd.bot.commiton.Bot;
+import kuidd.bot.commiton.commit.mocks.MockCommit;
 import kuidd.bot.commiton.mocks.MockChat;
-import kuidd.bot.commiton.mocks.MockCommit;
 
 public class BotTest {
 	private MockChat mock;

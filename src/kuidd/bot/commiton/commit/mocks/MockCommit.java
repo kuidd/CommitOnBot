@@ -1,4 +1,4 @@
-package kuidd.bot.commiton.mocks;
+package kuidd.bot.commiton.commit.mocks;
 
 import java.util.ArrayList;
 import java.util.List;
