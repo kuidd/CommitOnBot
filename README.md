@@ -7,6 +7,6 @@ Two steps to connect:
 [BitBucket](https://github.com/kuidd/CommitOnBot/wiki/How-to-connect-BitBucket-repository%3F))
 2. Communicate with @CommitOnBot in Telegram (simple [user API](https://github.com/kuidd/CommitOnBot/wiki/CommitOnBot-user-API))
 
-Enjoy:
-1. Commit to repo.
-2. Message in telegram.
+Enjoy!
+
+![](https://github.com/kuidd/CommitOnBot/blob/master/images/screenshot9.png)
