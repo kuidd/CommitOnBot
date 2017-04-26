@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import kuidd.bot.commiton.commit.Custom;
 import kuidd.bot.commiton.mocks.MockChat;
+import kuidd.bot.commiton.utils.File;
 
 public class CustomTest {
 
