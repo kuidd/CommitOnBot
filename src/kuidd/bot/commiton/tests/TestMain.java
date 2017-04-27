@@ -7,16 +7,19 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 import kuidd.bot.commiton.Bot;
 import kuidd.bot.commiton.IBot;
+import kuidd.bot.commiton.ITelegramBot;
 import kuidd.bot.commiton.Servlet;
 import kuidd.bot.commiton.Telegram;
+import kuidd.bot.commiton.TelegramBot;
 
 public class TestMain {
 	public static void main(String[] args) {
 		IBot bot = new Bot();
+		ITelegramBot telegramBot = new TelegramBot(bot);
 
 		ApiContextInitializer.init();
 		try {
-			new TelegramBotsApi().registerBot(new Telegram(bot));
+			new TelegramBotsApi().registerBot(new Telegram(telegramBot));
 		} catch (TelegramApiException e) {
 			e.printStackTrace();
 		}

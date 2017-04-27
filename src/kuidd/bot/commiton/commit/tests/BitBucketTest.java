@@ -19,8 +19,8 @@ public class BitBucketTest {
 		MockChat mock = new MockChat();
 
 		BitBucket commit = new BitBucket(json);
-		commit.notify(mock);
+		commit.notify(mock, "test");
 
-		assertEquals(mock.message, "Dmitry Usynin committed on Predictor: test created online with Bitbucket");
+		assertEquals("Dmitry Usynin committed on Predictor: test created online with Bitbucket", mock.message);
 	}
 }

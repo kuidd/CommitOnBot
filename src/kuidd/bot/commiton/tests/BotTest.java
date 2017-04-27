@@ -7,97 +7,170 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kuidd.bot.commiton.Bot;
-import kuidd.bot.commiton.commit.mocks.MockCommit;
+import kuidd.bot.commiton.commit.Commit;
 import kuidd.bot.commiton.mocks.MockChat;
 
 public class BotTest {
-	private MockChat mock;
+	private MockChat mockChat1;
+	private MockChat mockChat2;
 	private Bot bot;
 
 	@Before
 	public void prepare() {
-		mock = new MockChat();
+		mockChat1 = new MockChat();
+		mockChat2 = new MockChat();
 		bot = new Bot();
 	}
 
 	@After
 	public void close() {
-		mock = null;
+		mockChat1 = null;
+		mockChat2 = null;
 		bot = null;
 	}
 
 	@Test
+	public void startTest() {
+		bot.start(mockChat1);
+
+		assertEquals("Hello, I'm ready!\nCan I /help you?", mockChat1.message);
+	}
+
+	@Test
 	public void helpTest() {
-		bot.help(mock);
+		bot.help(mockChat1);
 
-		assertEquals("Доступные команды:\n/subscribe - подписаться\n/unsubscribe - отписаться", mock.message);
-	}
-
-	@Test
-	public void startUnsubscribedTest() {
-		bot.start(mock);
-
-		assertEquals("Подписка ещё не активирована.\n/subscribe - подписаться", mock.message);
-	}
-
-	@Test
-	public void startSubscribedTest() {
-		bot.subscribe(mock);
-		bot.start(mock);
-
-		assertEquals("Подписка уже активирована.\n/unsubscribe - отписаться", mock.message);
+		assertEquals(
+				"List of supported commands:\n/status - list of current subscriptions\n/subscribe <filter> - subscribe to all messages contains <filter> in repository name or in comment messages\n/unsubscribe <filter> - unsubscribe from all messages contains <filter> in repository name or in comment messages",
+				mockChat1.message);
 	}
 
 	@Test
 	public void subscribeTest() {
-		bot.subscribe(mock);
+		bot.subscribe(mockChat1, "filter");
 
-		assertEquals("Подписка активирована.", mock.message);
+		assertEquals("Subscription to <filter> activated", mockChat1.message);
 	}
 
 	@Test
 	public void unsubscribeTest() {
-		bot.unsubscribe(mock);
+		bot.unsubscribe(mockChat1, "filter");
 
-		assertEquals("Подписка отменена.", mock.message);
+		assertEquals("Subscription to <filter> deactivated", mockChat1.message);
+	}
+
+	@Test
+	public void statusTest_Unsubscribed() {
+		bot.status(mockChat1);
+
+		assertEquals("No subscriptions", mockChat1.message);
+	}
+
+	@Test
+	public void statusTest_SubscribedOne() {
+		bot.subscribe(mockChat1, "filter");
+		bot.status(mockChat1);
+
+		assertEquals("List of current subscriptions:\nfilter", mockChat1.message);
+	}
+
+	@Test
+	public void statusTest_SubscribedTwo() {
+		bot.subscribe(mockChat1, "filterOne");
+		bot.subscribe(mockChat1, "filterTow");
+
+		bot.status(mockChat1);
+
+		assertEquals("List of current subscriptions:\nfilterOne\nfilterTow", mockChat1.message);
+	}
+
+	@Test
+	public void statusTest_SubscribedTwoUnsubscribedOne() {
+		bot.subscribe(mockChat1, "filterOne");
+		bot.subscribe(mockChat1, "filterTow");
+
+		bot.unsubscribe(mockChat1, "filterOne");
+
+		bot.status(mockChat1);
+
+		assertEquals("List of current subscriptions:\nfilterTow", mockChat1.message);
 	}
 
 	@Test
 	public void broadcastTest() {
-		MockChat subscribed1 = new MockChat();
-		MockChat subscribed2 = new MockChat();
-		MockChat unsubscribed1 = new MockChat();
-		MockChat unsubscribed2 = new MockChat();
+		Commit commit = new Commit("author", "repository", "filter");
 
-		MockCommit mock = new MockCommit();
+		bot.subscribe(mockChat1, "filter");
 
-		bot.subscribe(subscribed1);
-		bot.subscribe(subscribed2);
-		bot.subscribe(unsubscribed1);
-		bot.subscribe(unsubscribed2);
+		mockChat1.message = "";
 
-		bot.unsubscribe(unsubscribed1);
-		bot.unsubscribe(unsubscribed2);
+		bot.broadcast(commit);
 
-		bot.broadcast(mock);
-
-		assertEquals(2, mock.chats.size());
-		assertEquals(subscribed1, mock.chats.get(0));
-		assertEquals(subscribed2, mock.chats.get(1));
+		assertEquals("author committed on repository: filter", mockChat1.message);
 	}
 
 	@Test
-	public void broadcastTest_double() {
-		MockChat chat = new MockChat();
+	public void broadcastTest_Double() {
+		Commit commit = new Commit("author", "repository", "filter");
 
-		MockCommit mock = new MockCommit();
+		bot.subscribe(mockChat1, "filter");
+		bot.subscribe(mockChat1, "filter");
 
-		bot.subscribe(chat);
-		bot.subscribe(chat);
+		mockChat1.message = "";
 
-		bot.broadcast(mock);
+		bot.broadcast(commit);
 
-		assertEquals(1, mock.chats.size());
-		assertEquals(chat, mock.chats.get(0));
+		assertEquals("author committed on repository: filter", mockChat1.message);
+	}
+
+	@Test
+	public void broadcastTest_Unsubscribe() {
+
+		Commit commit = new Commit("author", "repository", "filter");
+
+		bot.subscribe(mockChat1, "filter");
+		bot.subscribe(mockChat2, "filter");
+
+		bot.unsubscribe(mockChat2, "filter");
+
+		mockChat1.message = "";
+		mockChat2.message = "";
+
+		bot.broadcast(commit);
+
+		assertEquals("author committed on repository: filter", mockChat1.message);
+		assertEquals("", mockChat2.message);
+	}
+
+	@Test
+	public void broadcastTest_FilterByCommentCaseInsensitive() {
+		Commit commit = new Commit("author", "repository", "FilterONE");
+
+		bot.subscribe(mockChat1, "filterOne");
+		bot.subscribe(mockChat2, "filterTwo");
+
+		mockChat1.message = "";
+		mockChat2.message = "";
+
+		bot.broadcast(commit);
+
+		assertEquals("author committed on repository: FilterONE", mockChat1.message);
+		assertEquals("", mockChat2.message);
+	}
+
+	@Test
+	public void broadcastTest_FilterByRepositoryCaseInsensitive() {
+		Commit commit = new Commit("author", "RepositoryONE", "filter");
+
+		bot.subscribe(mockChat1, "repositoryOne");
+		bot.subscribe(mockChat2, "repositoryTwo");
+
+		mockChat1.message = "";
+		mockChat2.message = "";
+
+		bot.broadcast(commit);
+
+		assertEquals("author committed on RepositoryONE: filter", mockChat1.message);
+		assertEquals("", mockChat2.message);
 	}
 }

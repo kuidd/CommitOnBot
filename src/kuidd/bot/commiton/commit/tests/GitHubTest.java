@@ -19,8 +19,8 @@ public class GitHubTest {
 		MockChat mock = new MockChat();
 
 		GitHub commit = new GitHub(json);
-		commit.notify(mock);
+		commit.notify(mock, "test");
 
-		assertEquals(mock.message, "Dmitry Usynin committed on CommitOnBot: Create test");
+		assertEquals("Dmitry Usynin committed on CommitOnBot: Create test", mock.message);
 	}
 }

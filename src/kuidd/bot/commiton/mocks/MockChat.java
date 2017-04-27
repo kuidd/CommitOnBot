@@ -4,7 +4,7 @@ import kuidd.bot.commiton.IChat;
 
 public class MockChat implements IChat {
 
-	public String message;
+	public String message = new String();
 
 	@Override
 	public void print(String message) {

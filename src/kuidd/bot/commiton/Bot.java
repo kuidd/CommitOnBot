@@ -7,34 +7,35 @@ public class Bot implements IBot {
 	private IChats chats = new Chats();
 
 	@Override
-	public void help(IChat chat) {
-		chat.print("Доступные команды:\n/subscribe - подписаться\n/unsubscribe - отписаться");
-	}
-
-	@Override
 	public void start(IChat chat) {
-		if (chats.exists(chat)) {
-			chat.print("Подписка уже активирована.\n/unsubscribe - отписаться");
-		} else {
-			chat.print("Подписка ещё не активирована.\n/subscribe - подписаться");
-		}
+		chat.print("Hello, I'm ready!\nCan I /help you?");
 	}
 
 	@Override
-	public void subscribe(IChat chat) {
-		chats.add(chat);
-		chat.print("Подписка активирована.");
+	public void help(IChat chat) {
+		chat.print(
+				"List of supported commands:\n/status - list of current subscriptions\n/subscribe <filter> - subscribe to all messages contains <filter> in repository name or in comment messages\n/unsubscribe <filter> - unsubscribe from all messages contains <filter> in repository name or in comment messages");
 	}
 
 	@Override
-	public void unsubscribe(IChat chat) {
-		chats.remove(chat);
-		chat.print("Подписка отменена.");
+	public void status(IChat chat) {
+		chats.print(chat);
+	}
+
+	@Override
+	public void subscribe(IChat chat, String filter) {
+		chats.add(chat, filter);
+		chat.print("Subscription to <" + filter + "> activated");
+	}
+
+	@Override
+	public void unsubscribe(IChat chat, String filter) {
+		chats.remove(chat, filter);
+		chat.print("Subscription to <" + filter + "> deactivated");
 	}
 
 	@Override
 	public void broadcast(ICommit commit) {
 		chats.broadcast(commit);
 	}
-
 }

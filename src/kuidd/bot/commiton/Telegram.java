@@ -8,10 +8,10 @@ import kuidd.bot.commiton.config.ConfigProperties;
 
 public class Telegram extends TelegramLongPollingBot {
 
-	private IBot bot;
+	private ITelegramBot telegramBot;
 
-	public Telegram(IBot bot) {
-		this.bot = bot;
+	public Telegram(ITelegramBot telegramBot) {
+		this.telegramBot = telegramBot;
 	}
 
 	@Override
@@ -31,17 +31,9 @@ public class Telegram extends TelegramLongPollingBot {
 
 			Chat chat = new Chat(this, message.getChatId().toString());
 
-			if (message.getText().equals("/help")) {
-				bot.help(chat);
-			} else if (message.getText().equals("/start")) {
-				bot.start(chat);
-			} else if (message.getText().equals("/subscribe")) {
-				bot.subscribe(chat);
-			} else if (message.getText().equals("/unsubscribe")) {
-				bot.unsubscribe(chat);
-			} else {
-				chat.print("Не понимаю");
-			}
+			String command = message.getText();
+
+			telegramBot.process(chat, command);
 		}
 	}
 }

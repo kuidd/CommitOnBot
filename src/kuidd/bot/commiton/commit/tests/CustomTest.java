@@ -19,8 +19,8 @@ public class CustomTest {
 		MockChat mock = new MockChat();
 
 		Custom commit = new Custom(json);
-		commit.notify(mock);
+		commit.notify(mock, "Comment");
 
-		assertEquals(mock.message, "Dmitry Usynin committed on Repository: Comment");
+		assertEquals("Dmitry Usynin committed on Repository: Comment", mock.message);
 	}
 }

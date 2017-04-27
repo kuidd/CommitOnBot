@@ -19,8 +19,8 @@ public class Custom implements ICommit {
 	}
 
 	@Override
-	public void notify(IChat chat) {
-		commit.notify(chat);
+	public void notify(IChat chat, String filter) {
+		commit.notify(chat, filter);
 	}
 
 }

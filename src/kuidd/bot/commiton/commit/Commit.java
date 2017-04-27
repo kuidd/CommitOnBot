@@ -14,7 +14,9 @@ public class Commit implements ICommit {
 	}
 
 	@Override
-	public void notify(IChat chat) {
-		chat.print(author + " committed on " + repository + ": " + comment);
+	public void notify(IChat chat, String filter) {
+		if (repository.toLowerCase().contains(filter.toLowerCase()) || comment.toLowerCase().contains(filter.toLowerCase())) {
+			chat.print(author + " committed on " + repository + ": " + comment);
+		}
 	}
 }
